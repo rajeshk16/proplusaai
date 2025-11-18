@@ -4,30 +4,30 @@ import { motion } from "framer-motion";
 import { useInView } from "framer-motion";
 import { useRef, useState } from "react";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { Check, Sparkles } from "lucide-react";
+import { Sparkles } from "lucide-react";
 
 const pricingData = {
   "AI & ML": [
-    { service: "Custom AI Model Development", range: "$15,000 - $50,000", description: "Tailored AI solutions for specific business needs" },
-    { service: "ML Model Training & Optimization", range: "$8,000 - $25,000", description: "Fine-tuning and optimization of ML models" },
-    { service: "NLP Solutions", range: "$12,000 - $40,000", description: "Text analysis and language understanding" },
+    { service: "Custom AI Model Development", range: "$15,000 - $50,000", description: "Tailored AI solutions for your specific business needs" },
+    { service: "ML Model Training & Optimization", range: "$8,000 - $25,000", description: "Fine-tuning and optimization of machine learning models" },
+    { service: "NLP Solutions", range: "$12,000 - $40,000", description: "Natural language processing and text analysis" },
     { service: "Computer Vision", range: "$10,000 - $35,000", description: "Image and video analysis systems" },
   ],
   "Data Engineering": [
     { service: "Data Pipeline Development", range: "$10,000 - $30,000", description: "Automated data processing workflows" },
-    { service: "ETL Process Design", range: "$8,000 - $22,000", description: "Extract, transform, load solutions" },
+    { service: "ETL Process Design", range: "$8,000 - $22,000", description: "Extract, transform, and load solutions" },
     { service: "Data Warehouse Setup", range: "$15,000 - $45,000", description: "Centralized data storage architecture" },
-    { service: "Real-time Data Processing", range: "$12,000 - $35,000", description: "Stream processing systems" },
+    { service: "Real-time Data Processing", range: "$12,000 - $35,000", description: "Stream processing and real-time analytics" },
   ],
   "Cloud Services": [
     { service: "Cloud Migration", range: "$20,000 - $60,000", description: "Complete cloud transition services" },
     { service: "Infrastructure as Code", range: "$8,000 - $25,000", description: "Automated infrastructure deployment" },
-    { service: "DevOps Implementation", range: "$15,000 - $40,000", description: "CI/CD pipeline setup" },
+    { service: "DevOps Implementation", range: "$15,000 - $40,000", description: "CI/CD pipeline setup and automation" },
     { service: "Cloud Optimization", range: "$5,000 - $15,000", description: "Cost and performance optimization" },
   ],
   "Development": [
     { service: "Full-Stack Development", range: "$25,000 - $80,000", description: "Complete web application development" },
-    { service: "API Development", range: "$8,000 - $20,000", description: "RESTful and GraphQL APIs" },
+    { service: "API Development", range: "$8,000 - $20,000", description: "RESTful and GraphQL API design" },
     { service: "Mobile App Development", range: "$30,000 - $100,000", description: "iOS and Android applications" },
     { service: "System Integration", range: "$10,000 - $35,000", description: "Third-party service integration" },
   ],

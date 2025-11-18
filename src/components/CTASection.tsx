@@ -1,23 +1,17 @@
 "use client";
 
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
 import { useRef } from "react";
-import { Calendar, Briefcase, ArrowRight, Phone } from "lucide-react";
+import { Calendar, Phone, Mail, ArrowRight, Users, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const benefits = [
-  "Free initial consultation and strategy session",
-  "Customized solutions for your specific needs",
-  "Ongoing support and optimization",
-  "Transparent pricing with no hidden fees",
-];
 
 export default function CTASection() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section ref={ref} className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 relative overflow-hidden">
+    <section id="contact" ref={ref} className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-blue-600 via-purple-600 to-pink-600 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -36,124 +30,171 @@ export default function CTASection() {
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
           className="absolute -bottom-1/2 -right-1/2 w-full h-full bg-white/10 rounded-full blur-3xl"
         />
+        <motion.div
+          animate={{
+            scale: [1, 1.3, 1],
+            rotate: [0, -90, 0],
+          }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-white/5 rounded-full blur-3xl"
+        />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="text-center mb-12"
+        >
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={isInView ? { opacity: 1, scale: 1 } : {}}
+            whileHover={{ scale: 1.05 }}
+            className="inline-block bg-white/20 backdrop-blur-xl rounded-full px-4 sm:px-6 py-2 mb-4 sm:mb-6"
           >
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              className="inline-block bg-white/20 backdrop-blur-xl rounded-full px-6 py-2 mb-6"
-            >
-              <span className="text-base font-semibold text-white">
-                Ready to Get Started?
-              </span>
-            </motion.div>
-
-            <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
-              Transform Your Business Today
-            </h2>
-            <p className="text-xl text-white/90 mb-8">
-              Join hundreds of successful businesses that have accelerated their growth with PropelusAI's expert services. Let's discuss how we can help you achieve your goals.
-            </p>
-
-            <div className="space-y-3 mb-8">
-              {benefits.map((benefit, idx) => (
-                <motion.div
-                  key={benefit}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : {}}
-                  transition={{ duration: 0.5, delay: 0.2 + idx * 0.1 }}
-                  className="flex items-center gap-3"
-                >
-                  <div className="w-6 h-6 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center flex-shrink-0">
-                    <div className="w-2 h-2 rounded-full bg-white" />
-                  </div>
-                  <span className="text-white text-lg">{benefit}</span>
-                </motion.div>
-              ))}
-            </div>
+            <span className="text-sm sm:text-base font-semibold text-white">
+              Ready to Get Started?
+            </span>
           </motion.div>
 
-          {/* Right Column - CTA Cards */}
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            animate={isInView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8 }}
-            className="space-y-6"
+          <motion.h2 
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-4 sm:mb-6"
+            initial={{ opacity: 0, y: 20 }}
+            animate={isInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
           >
-            <motion.div
-              whileHover={{ scale: 1.02, y: -4 }}
-              className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl"
-            >
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-500 flex items-center justify-center shadow-lg">
-                  <Calendar className="w-7 h-7 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    Schedule Free Consultation
-                  </h3>
-                  <p className="text-gray-600">
-                    Book a 30-minute strategy session with our experts
-                  </p>
-                </div>
-              </div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" className="w-full bg-gradient-to-r from-blue-600 to-purple-600 hover:shadow-xl text-white rounded-full py-6 text-lg font-semibold group">
-                  Schedule Consultation
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </motion.div>
-            </motion.div>
+            Ready to Transform Your Business?
+          </motion.h2>
+          <motion.p 
+            className="text-base sm:text-lg lg:text-xl text-white/90 mb-8"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+          >
+            Schedule a free consultation with our experts and discover how AI can propel your business to new heights.
+          </motion.p>
+        </motion.div>
 
-            <motion.div
-              whileHover={{ scale: 1.02, y: -4 }}
-              className="bg-white/95 backdrop-blur-xl rounded-3xl p-8 shadow-2xl"
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto mb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 20, rotateX: -20 }}
+            animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            whileHover={{ 
+              y: -8, 
+              scale: 1.05,
+              rotateY: 5,
+              transition: { duration: 0.3 }
+            }}
+            className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 text-center shadow-xl transform-gpu"
+            style={{ transformStyle: "preserve-3d" }}
+          >
+            <motion.div 
+              className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-4 shadow-lg"
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.6 }}
             >
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-orange-500 to-pink-500 flex items-center justify-center shadow-lg">
-                  <Briefcase className="w-7 h-7 text-white" />
-                </div>
-                <div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    View Portfolio
-                  </h3>
-                  <p className="text-gray-600">
-                    Explore our case studies and success stories
-                  </p>
-                </div>
-              </div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-                <Button size="lg" variant="outline" className="w-full border-2 border-gray-300 text-gray-700 hover:bg-white hover:border-purple-500 hover:text-purple-600 rounded-full py-6 text-lg font-semibold group">
-                  View Portfolio
-                  <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </motion.div>
+              <Calendar className="w-6 h-6 text-white" />
             </motion.div>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Free Consultation</h3>
+            <p className="text-sm text-gray-600">30-minute strategy session</p>
+          </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="flex items-center justify-center gap-4 bg-white/10 backdrop-blur-xl rounded-2xl p-6"
+          <motion.div
+            initial={{ opacity: 0, y: 20, rotateX: -20 }}
+            animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            whileHover={{ 
+              y: -8, 
+              scale: 1.05,
+              rotateY: 5,
+              transition: { duration: 0.3 }
+            }}
+            className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 text-center shadow-xl transform-gpu"
+            style={{ transformStyle: "preserve-3d" }}
+          >
+            <motion.div 
+              className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center mx-auto mb-4 shadow-lg"
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.6 }}
             >
-              <Phone className="w-6 h-6 text-white" />
-              <div>
-                <p className="text-white/80 text-sm">Or call us directly</p>
-                <a href="tel:+1234567890" className="text-white text-xl font-bold hover:underline">
-                  +1 (234) 567-890
-                </a>
-              </div>
+              <Users className="w-6 h-6 text-white" />
             </motion.div>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Custom Strategy</h3>
+            <p className="text-sm text-gray-600">Tailored solutions for your needs</p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20, rotateX: -20 }}
+            animate={isInView ? { opacity: 1, y: 0, rotateX: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            whileHover={{ 
+              y: -8, 
+              scale: 1.05,
+              rotateY: 5,
+              transition: { duration: 0.3 }
+            }}
+            className="bg-white/95 backdrop-blur-xl rounded-2xl p-6 text-center shadow-xl transform-gpu"
+            style={{ transformStyle: "preserve-3d" }}
+          >
+            <motion.div 
+              className="w-12 h-12 rounded-xl bg-gradient-to-br from-orange-500 to-red-500 flex items-center justify-center mx-auto mb-4 shadow-lg"
+              whileHover={{ rotate: 360 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Zap className="w-6 h-6 text-white" />
+            </motion.div>
+            <h3 className="text-lg font-bold text-gray-900 mb-2">Fast Implementation</h3>
+            <p className="text-sm text-gray-600">Quick turnaround times</p>
           </motion.div>
         </div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6, delay: 0.5 }}
+          className="text-center space-y-6"
+        >
+          <motion.div 
+            whileHover={{ scale: 1.05, rotateY: 5 }} 
+            whileTap={{ scale: 0.95 }}
+            style={{ transformStyle: "preserve-3d" }}
+          >
+            <Button size="lg" className="bg-white text-purple-600 hover:bg-gray-50 rounded-full px-12 py-6 text-lg font-semibold shadow-2xl group">
+              Schedule Your Meeting
+              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </Button>
+          </motion.div>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-white">
+            <motion.a 
+              href="tel:+1234567890" 
+              className="flex items-center gap-2 hover:underline"
+              whileHover={{ scale: 1.05, x: 5 }}
+            >
+              <Phone className="w-5 h-5" />
+              <span className="font-semibold">Call Us Directly</span>
+            </motion.a>
+            <motion.a 
+              href="mailto:contact@propelusai.com" 
+              className="flex items-center gap-2 hover:underline"
+              whileHover={{ scale: 1.05, x: 5 }}
+            >
+              <Mail className="w-5 h-5" />
+              <span className="font-semibold">Send Email</span>
+            </motion.a>
+          </div>
+
+          <motion.p 
+            className="text-white/80 text-sm"
+            initial={{ opacity: 0 }}
+            animate={isInView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.6, delay: 0.6 }}
+          >
+            Available for clients in America, Europe, Middle East, and India
+          </motion.p>
+        </motion.div>
       </div>
     </section>
   );

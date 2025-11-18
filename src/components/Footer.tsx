@@ -24,67 +24,53 @@ export default function Footer() {
               </div>
             </div>
             <p className="text-gray-400 mb-6 text-sm sm:text-base">
-              Transforming businesses with cutting-edge AI and machine learning
-              solutions.
+              Empowering businesses with cutting-edge marketing and IT solutions. We help creators, entrepreneurs, and companies scale their digital presence with confidence.
             </p>
+
             <div className="flex gap-3">
               <a
                 href="#"
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 transition-all flex items-center justify-center group"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all hover:scale-110"
               >
-                <Linkedin className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Linkedin className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 transition-all flex items-center justify-center group"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all hover:scale-110"
               >
-                <Twitter className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Twitter className="w-5 h-5" />
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-xl bg-white/10 hover:bg-gradient-to-br hover:from-blue-500 hover:to-purple-500 transition-all flex items-center justify-center group"
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center transition-all hover:scale-110"
               >
-                <Github className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                <Github className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h3 className="font-bold text-base sm:text-lg mb-4 text-white">
-              Services
-            </h3>
-            <ul className="space-y-2 sm:space-y-3 text-gray-400 text-sm sm:text-base">
+            <h3 className="text-lg font-bold mb-4">Services</h3>
+            <ul className="space-y-3 text-gray-400">
               <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
-                >
-                  AI & Machine Learning
+                <a href="#services" className="hover:text-white transition-colors">
+                  Digital Marketing
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
-                >
-                  Data Engineering
+                <a href="#services" className="hover:text-white transition-colors">
+                  IT Solutions
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
-                >
-                  Cloud Solutions
+                <a href="#services" className="hover:text-white transition-colors">
+                  Web Development
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
-                >
-                  Custom Development
+                <a href="#services" className="hover:text-white transition-colors">
+                  Consulting
                 </a>
               </li>
             </ul>
@@ -92,40 +78,26 @@ export default function Footer() {
 
           {/* Company */}
           <div>
-            <h3 className="font-bold text-base sm:text-lg mb-4 text-white">
-              Company
-            </h3>
-            <ul className="space-y-2 sm:space-y-3 text-gray-400 text-sm sm:text-base">
+            <h3 className="text-lg font-bold mb-4">Company</h3>
+            <ul className="space-y-3 text-gray-400">
               <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
-                >
+                <a href="#about" className="hover:text-white transition-colors">
                   About Us
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
-                >
-                  Careers
+                <a href="#contact" className="hover:text-white transition-colors">
+                  Contact
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
-                >
-                  Case Studies
+                <a href="#" className="hover:text-white transition-colors">
+                  Privacy Policy
                 </a>
               </li>
               <li>
-                <a
-                  href="#"
-                  className="hover:text-blue-400 transition-colors hover:translate-x-1 inline-block"
-                >
-                  Blog
+                <a href="#" className="hover:text-white transition-colors">
+                  Terms of Service
                 </a>
               </li>
             </ul>
@@ -133,21 +105,23 @@ export default function Footer() {
 
           {/* Contact */}
           <div>
-            <h3 className="font-bold text-base sm:text-lg mb-4 text-white">
-              Contact
-            </h3>
-            <ul className="space-y-3 sm:space-y-4 text-gray-400 text-sm sm:text-base">
-              <li className="flex items-start gap-3 hover:text-blue-400 transition-colors">
+            <h3 className="text-lg font-bold mb-4">Contact</h3>
+            <ul className="space-y-3 text-gray-400">
+              <li className="flex items-start gap-2">
                 <Mail className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>contact@propelusai.com</span>
+                <a href="mailto:contact@propelusai.com" className="hover:text-white transition-colors">
+                  contact@propelusai.com
+                </a>
               </li>
-              <li className="flex items-start gap-3 hover:text-blue-400 transition-colors">
+              <li className="flex items-start gap-2">
                 <Phone className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>+1 (555) 123-4567</span>
+                <a href="tel:+1234567890" className="hover:text-white transition-colors">
+                  +1 (234) 567-890
+                </a>
               </li>
-              <li className="flex items-start gap-3 hover:text-blue-400 transition-colors">
+              <li className="flex items-start gap-2">
                 <MapPin className="w-5 h-5 mt-0.5 flex-shrink-0" />
-                <span>123 AI Street, Tech City, TC 12345</span>
+                <span>Global Services</span>
               </li>
             </ul>
           </div>
@@ -156,19 +130,18 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row justify-between items-center gap-4 text-gray-400 text-xs sm:text-sm">
           <p className="flex items-center gap-2">
-            &copy; 2025 PropelusAI. Made with{" "}
-            <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" />{" "}
-            by our team
+            &copy; 2024 PropelusAI. All rights reserved.
           </p>
-          <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-            <a href="#" className="hover:text-blue-400 transition-colors">
-              Privacy Policy
+
+          <div className="flex gap-6">
+            <a href="#" className="hover:text-white transition-colors">
+              Privacy
             </a>
-            <a href="#" className="hover:text-blue-400 transition-colors">
-              Terms of Service
+            <a href="#" className="hover:text-white transition-colors">
+              Terms
             </a>
-            <a href="#" className="hover:text-blue-400 transition-colors">
-              Cookie Policy
+            <a href="#" className="hover:text-white transition-colors">
+              Cookies
             </a>
           </div>
         </div>

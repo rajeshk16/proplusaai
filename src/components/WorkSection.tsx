@@ -86,27 +86,27 @@ export default function WorkSection() {
     : projects.filter(p => p.category === activeCategory);
 
   return (
-    <section id="work" ref={ref} className="py-16 sm:py-20 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="work" ref={ref} className="py-12 sm:py-16 lg:py-24 bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-10 lg:mb-12"
         >
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={isInView ? { opacity: 1, scale: 1 } : {}}
-            className="inline-block bg-white/80 backdrop-blur-xl border border-blue-200 rounded-full px-6 py-2 mb-4 shadow-lg"
+            className="inline-block bg-white/80 backdrop-blur-xl border border-blue-200 rounded-full px-4 sm:px-6 py-2 mb-4 shadow-lg"
           >
-            <span className="text-base font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-sm sm:text-base font-semibold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
               Our Portfolio
             </span>
           </motion.div>
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-4">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-4">
             Success Stories
           </h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 max-w-2xl mx-auto px-4">
             Explore our portfolio of successful projects and case studies
           </p>
         </motion.div>
@@ -116,7 +116,7 @@ export default function WorkSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="flex flex-wrap justify-center gap-3 mb-12"
+          className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-10 lg:mb-12 px-2"
         >
           {categories.map((category) => (
             <motion.button
@@ -124,14 +124,14 @@ export default function WorkSection() {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setActiveCategory(category.id)}
-              className={`flex items-center gap-2 px-6 py-3 rounded-full font-semibold transition-all ${
+              className={`flex items-center gap-1.5 sm:gap-2 px-4 sm:px-6 py-2.5 sm:py-3 rounded-full font-semibold text-sm sm:text-base transition-all ${
                 activeCategory === category.id
                   ? "bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg"
                   : "bg-white text-gray-700 hover:bg-gray-50 border border-gray-200"
               }`}
             >
-              {category.icon && <category.icon className="w-4 h-4" />}
-              {category.label}
+              {category.icon && <category.icon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />}
+              <span className="whitespace-nowrap">{category.label}</span>
             </motion.button>
           ))}
         </motion.div>
@@ -139,7 +139,7 @@ export default function WorkSection() {
         {/* Projects Grid */}
         <motion.div 
           layout
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6"
         >
           {filteredProjects.map((project, idx) => (
             <motion.div
@@ -150,41 +150,41 @@ export default function WorkSection() {
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.4, delay: idx * 0.1 }}
               whileHover={{ y: -8 }}
-              className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
+              className="group bg-white rounded-2xl sm:rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100"
             >
-              <div className="relative h-48 overflow-hidden">
+              <div className="relative h-40 sm:h-48 overflow-hidden">
                 <img 
                   src={project.image} 
                   alt={project.title}
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                 />
                 <div className={`absolute inset-0 bg-gradient-to-t ${project.color} opacity-60 group-hover:opacity-40 transition-opacity`} />
-                <div className="absolute top-4 right-4">
-                  <div className={`w-12 h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
-                    <ExternalLink className="w-5 h-5 text-gray-700" />
+                <div className="absolute top-3 right-3 sm:top-4 sm:right-4">
+                  <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform`}>
+                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5 text-gray-700" />
                   </div>
                 </div>
               </div>
               
-              <div className="p-6">
-                <div className="flex flex-wrap gap-2 mb-3">
+              <div className="p-4 sm:p-6">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mb-3">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="text-xs font-semibold px-3 py-1 rounded-full bg-gray-100 text-gray-700">
+                    <span key={tag} className="text-xs font-semibold px-2.5 sm:px-3 py-1 rounded-full bg-gray-100 text-gray-700">
                       {tag}
                     </span>
                   ))}
                 </div>
                 
-                <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-600 group-hover:to-purple-600 transition-all">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 group-hover:text-transparent group-hover:bg-gradient-to-r group-hover:bg-clip-text group-hover:from-blue-600 group-hover:to-purple-600 transition-all">
                   {project.title}
                 </h3>
                 
-                <p className="text-gray-600 mb-4 text-sm">
+                <p className="text-gray-600 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
                   {project.description}
                 </p>
                 
-                <div className={`inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r ${project.color} text-white text-sm font-semibold`}>
-                  <LineChart className="w-4 h-4" />
+                <div className={`inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-gradient-to-r ${project.color} text-white text-xs sm:text-sm font-semibold`}>
+                  <LineChart className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                   {project.results}
                 </div>
               </div>
@@ -196,12 +196,12 @@ export default function WorkSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.4 }}
-          className="text-center mt-12"
+          className="text-center mt-8 sm:mt-10 lg:mt-12"
         >
           <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Button size="lg" className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:shadow-2xl hover:shadow-purple-500/50 text-white rounded-full px-12 py-6 text-lg font-semibold group">
+            <Button size="lg" className="w-full sm:w-auto bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 hover:shadow-2xl hover:shadow-purple-500/50 text-white rounded-full px-8 sm:px-12 py-5 sm:py-6 text-base sm:text-lg font-semibold group">
               View All Case Studies
-              <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-2 w-4 h-4 sm:w-5 sm:h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
           </motion.div>
         </motion.div>
